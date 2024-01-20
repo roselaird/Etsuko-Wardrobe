@@ -1,0 +1,19 @@
+[
+    {
+        "name": "blue top",
+        "owner": "Rose",
+        "description": "loovly blue top",
+        "size": "M",
+        "image": "top_1.jpg",
+        "type": "top"
+    },
+
+    {
+        "name": "red jumper",
+        "owner": "Sorine",
+        "description": "groovy red motel jumper",
+        "size": "S",
+        "image": "top_1.jpg",
+        "type": "top"
+    }
+]
