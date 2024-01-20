@@ -1,0 +1,22 @@
+.card-container {
+    display: flex;
+    gap: 10px; /* Adjust the gap between cards as needed */
+}
+
+.card {
+    height: 100%; /* Set a fixed height for the cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distribute space between items */
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 70%; /* Set a fixed height for the image */
+}

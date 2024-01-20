@@ -13,18 +13,34 @@ async function loadClothes() {
 
         const clothesData = await response.json();
         const clothesDiv = document.getElementById('clothesdiv');
+        const clothingGrid = document.createElement('div'); 
 
         clothesData.forEach(clothing => {
             const name = clothing.name;
             const owner = clothing.owner;
             const filepath = clothing.image;
+            const description = clothing.description;
 
-            //const clothingInfoDiv = document.createElement('div');
-            clothesDiv.innerHTML = `<p>Name: ${name}</p><p>Owner: ${owner}</p><img src="${filepath}"></img>`;
-            //clothesDiv.appendChild(clothingInfoDiv);
+            const clothesCard = document.createElement('div'); 
+           
+            clothesCard.innerHTML = `
+                <div class="card" style="width: 18rem;">
+                    <img src="${filepath}" class="card-img-top" alt="${description}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">${name}</h5>
+                        <p class="card-text">${description}</p>
+                        <a href="#" class="btn btn-primary" onclick="loadOwner(${owner})">${owner}</a>
+                    </div>
+                </div>
+            `;
+            clothingGrid.appendChild(clothesCard);
+            
         });
+    
+        clothesDiv.innerHTML = clothingGrid.innerHTML
+    
 
-        console.log('Data loaded successfully.');
+        console.log(clothingGrid, 'Data loaded successfully.');
 
     } catch (error) {
         console.error('Error loading clothes:', error.message);
