@@ -17,12 +17,11 @@ async function loadClothes() {
         clothesData.forEach(clothing => {
             const name = clothing.name;
             const owner = clothing.owner;
-            const filepath = clothing.filepath;
+            const filepath = clothing.image;
 
-            const clothingInfoDiv = document.createElement('div');
-            clothingInfoDiv.innerHTML = `<p>Name: ${name}</p><p>Owner: ${owner}</p><p>Filepath: ${filepath}</p>`;
-
-            clothesDiv.appendChild(clothingInfoDiv);
+            //const clothingInfoDiv = document.createElement('div');
+            clothesDiv.innerHTML = `<p>Name: ${name}</p><p>Owner: ${owner}</p><img src="${filepath}"></img>`;
+            //clothesDiv.appendChild(clothingInfoDiv);
         });
 
         console.log('Data loaded successfully.');
