@@ -7,13 +7,36 @@
         "image": "blue_top.jpg",
         "type": "top"
     },
-
     {
-        "name": "red jumper",
+        "name": "blue top 2",
+        "owner": "Sorine",
+        "description": "blue strappy top",
+        "size": "S",
+        "image": "blue_strap_top.jpg",
+        "type": "top"
+    },
+    {
+        "name": "grey top",
+        "owner": "Sorine",
+        "description": "going out top",
+        "size": "S",
+        "image": "grey_top.jpg",
+        "type": "top"
+    },
+    {
+        "name": "halter top",
         "owner": "Sorine",
         "description": "groovy red motel jumper",
         "size": "S",
-        "image": "top_1.jpg",
+        "image": "halter_top.jpg",
+        "type": "top"
+    },
+    {
+        "name": "purple top",
+        "owner": "Sorine",
+        "description": "purple top",
+        "size": "S",
+        "image": "purple_top.jpg",
         "type": "top"
     }
 ]

@@ -13,10 +13,16 @@
 <body>
     <h1>Etsuko Community Wardrobe</h1>
     <p>view clothes on offer to borrow and add you own!</p>
-    <div id="clothesdiv" class = "card-container"></div>
-    <button onclick="loadClothes()">show clothes</button>
-
-
+    <p>Clothes:</p>
+    <button type="button" class="btn btn-outline-yellow" onclick="loadClothes(all)">All</button>
+    <button type="button" class="btn btn-outline-green" onclick="loadClothes(tops)">Tops</button>
+    <button type="button" class="btn btn-outline-blue" onclick="loadClothes(bottoms)">Bottoms</button>
+    <button type="button" class="btn btn-outline-purple" onclick="loadClothes(jumpers)">Jumpers</button>
+    <button type="button" class="btn btn-outline-pink" onclick="loadClothes(accessories)">Accessories</button>
+   
+    <div class = "container-fluid">
+        <div id="clothesdiv" class="row"></div>
+    </div>
 
 
     <script src="client.js"></script> 

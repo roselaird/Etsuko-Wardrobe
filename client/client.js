@@ -13,7 +13,8 @@ async function loadClothes() {
 
         const clothesData = await response.json();
         const clothesDiv = document.getElementById('clothesdiv');
-        const clothingGrid = document.createElement('div'); 
+        const clothingGrid = document.createElement('div');
+        clothingGrid.className = "row"
 
         clothesData.forEach(clothing => {
             const name = clothing.name;
@@ -22,16 +23,17 @@ async function loadClothes() {
             const description = clothing.description;
 
             const clothesCard = document.createElement('div'); 
+            clothesCard.className = 'col-12 col-sm-6 col-md-4 col-lg-3'
            
             clothesCard.innerHTML = `
-                <div class="card" style="width: 18rem;">
-                    <img src="${filepath}" class="card-img-top" alt="${description}">
+                    <div class="card">
+                    <img src="${filepath}" class="card-img-top img-fluid" alt="${description}">
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${name}</h5>
                         <p class="card-text">${description}</p>
-                        <a href="#" class="btn btn-primary" onclick="loadOwner(${owner})">${owner}</a>
+                        <a href="#" class="btn btn-pink" onclick="loadOwner(${owner})">${owner}</a>
                     </div>
-                </div>
+                    </div>
             `;
             clothingGrid.appendChild(clothesCard);
             
