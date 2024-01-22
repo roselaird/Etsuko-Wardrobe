@@ -8,10 +8,15 @@ app.use(express.static('client'));
 app.use(express.json());
 
 const clothesFile = JSON.parse(fs.readFileSync('data/clothesData.json', 'utf-8'));
+const ownerFile = JSON.parse(fs.readFileSync('data/ownersData.json', 'utf-8'));
 
 app.get('/clothesData', function (request, response) {
+    console.log('she returs', clothesFile)
     response.json(clothesFile);
-    console.log('server get');
+});
+
+app.get('/ownerData', function (request, response) {
+    response.json(ownerFile);
 });
 
 module.exports = app;

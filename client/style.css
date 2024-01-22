@@ -1,6 +1,15 @@
+.main{
+    margin-left:20px;
+}
+
 .card-container {
     display: flex;
-    gap: 10px; /* Adjust the gap between cards as needed */
+    gap: 10px;
+}
+
+#category{
+    padding: 25px 0px 25px;
+    color: #512D38
 }
 
 .card {
