@@ -1,42 +1,78 @@
 [
-    {
-        "name": "blue top",
-        "owner": "Rose",
-        "description": "loovly blue top",
-        "size": "M",
-        "image": "blue_top.jpg",
-        "type": "top"
-    },
-    {
-        "name": "blue top 2",
-        "owner": "Sorine",
-        "description": "blue strappy top",
-        "size": "S",
-        "image": "blue_strap_top.jpg",
-        "type": "top"
-    },
-    {
-        "name": "grey top",
-        "owner": "Sorine",
-        "description": "going out top",
-        "size": "S",
-        "image": "grey_top.jpg",
-        "type": "top"
-    },
-    {
-        "name": "halter top",
-        "owner": "Sorine",
-        "description": "groovy red motel jumper",
-        "size": "S",
-        "image": "halter_top.jpg",
-        "type": "top"
-    },
-    {
-        "name": "purple top",
-        "owner": "Sorine",
-        "description": "purple top",
-        "size": "S",
-        "image": "purple_top.jpg",
-        "type": "top"
-    }
+  {
+    "name": "blue top",
+    "owner": "Rose",
+    "description": "loovly blue top",
+    "size": "M",
+    "image": "blue_top.jpg",
+    "type": "top"
+  },
+  {
+    "name": "blue top 2",
+    "owner": "Sorine",
+    "description": "blue strappy top",
+    "size": "S",
+    "image": "blue_strap_top.jpg",
+    "type": "top"
+  },
+  {
+    "name": "grey top",
+    "owner": "Sorine",
+    "description": "going out top",
+    "size": "S",
+    "image": "grey_top.jpg",
+    "type": "top"
+  },
+  {
+    "name": "halter top",
+    "owner": "Sorine",
+    "description": "groovy red motel jumper",
+    "size": "S",
+    "image": "halter_top.jpg",
+    "type": "top"
+  },
+  {
+    "name": "purple top",
+    "owner": "Sorine",
+    "description": "purple top",
+    "size": "S",
+    "image": "purple_top.jpg",
+    "type": "top"
+  },
+  {
+    "name": "purple top",
+    "owner": "Sorine",
+    "description": "purple top",
+    "size": "S",
+    "image": "empty.jpg",
+    "type": "top"
+  },
+  {
+    "name": "Rose Laird",
+    "owner": "Sorine",
+    "description": "file test",
+    "size": "XS",
+    "image": "empty.jpg"
+  },
+  {
+    "name": "",
+    "owner": "Sorine",
+    "description": "",
+    "size": "XS",
+    "image": "empty.jpg"
+  },
+  {
+    "name": "",
+    "owner": "Sorine",
+    "description": "",
+    "size": "XS",
+    "image": "empty.jpg"
+  },
+  {
+    "name": "",
+    "owner": "Sorine",
+    "description": "",
+    "size": "XS",
+    "image": "empty.jpg"
+  }
 ]
