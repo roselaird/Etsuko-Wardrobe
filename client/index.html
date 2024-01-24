@@ -15,9 +15,10 @@
         <h1 class="display-2">Etsuko Wardrobe</h1>
         <p>Save the planet and affirm our status as a funny little cult</p>
 
+
         <div id="ownerdiv" class="card" style="width: 25rem;"></div>
 
-        <h4 id="category">Categories</h4>
+        <h4 id="category-title">Categories</h4>
         
         <button type="button" class="btn btn-outline-purple mb-4" onclick="loadClothes('all')">All</button>
         <button type="button" class="btn btn-outline-purple mb-4" onclick="loadClothes('top')">Tops</button>
@@ -30,9 +31,11 @@
         <div id="clothesdiv" class="row"></div>
     </div>
 
-    
+
+
     <div class="container mt-5">
         <h2>Add a new item</h2>
+
         <form enctype="multipart/form-data">
 
             <div class="form-group">
@@ -41,15 +44,12 @@
             </div>
 
             <div class="form-group">
-                <label for="image">Image:</label>
-                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
-            </div>
-
-            <div class="form-group">
                 <label for="owner">Owner:</label>
                 <select class="form-control" id="owner" name="owner" required>
                     <option value="Sorine">Sorine</option>
                     <option value="Rose">Rose</option>
+                    <option value="Megan">Megan</option>
+                    <option value="Liam">Liam</option>
                 </select>
             </div>
 
@@ -63,6 +63,8 @@
                 <select class="form-control" id="category" name="category" required>
                     <option value="top">Top</option>
                     <option value="bottoms">Bottoms</option>
+                    <option value="jumper">Jumper</option>
+                    <option value="accessory">Accessory</option>
                 </select>
             </div>
 
@@ -76,15 +78,20 @@
                     <option value="XL">XL</option>
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary" onclick="addClothes()">Submit</button>
+            <button type="submit" class="btn btn-pink" onclick="addClothesText(event)">Submit</button>
+            
+            <form enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="image">Image:</label>
+                    <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+                </div>
+                <button type="submit" class="btn btn-pink" onclick="uploadSelectedImage(event)">Upload your selected image</button>
+            </form>
+            
+            
             <br></br>
         </form>
     </div>
-
-
-
-
-    <!--<img src="add.png" class="add" onclick="addClothes()" alt="Add clothes">-->
 
     <script src="client.js"></script> 
 </body>

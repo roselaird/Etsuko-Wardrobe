@@ -1,16 +1,16 @@
 [
   {
-    "name": "blue top",
+    "name": "navy mesh top",
     "owner": "Rose",
-    "description": "loovly blue top",
+    "description": "strappy floral mesh top, can be a little itchy",
     "size": "M",
     "image": "blue_top.jpg",
     "type": "top"
   },
   {
-    "name": "blue top 2",
+    "name": "blue floral top",
     "owner": "Sorine",
-    "description": "blue strappy top",
+    "description": "baby blue floral mesh strappy top",
     "size": "S",
     "image": "blue_strap_top.jpg",
     "type": "top"
@@ -18,7 +18,7 @@
   {
     "name": "grey top",
     "owner": "Sorine",
-    "description": "going out top",
+    "description": "grey mesh top, need top for underneath",
     "size": "S",
     "image": "grey_top.jpg",
     "type": "top"
@@ -26,7 +26,7 @@
   {
     "name": "halter top",
     "owner": "Sorine",
-    "description": "groovy red motel jumper",
+    "description": "stripy halterneck top",
     "size": "S",
     "image": "halter_top.jpg",
     "type": "top"
@@ -34,9 +34,89 @@
   {
     "name": "purple top",
     "owner": "Sorine",
-    "description": "purple top",
+    "description": "is a tiny bit stained",
     "size": "S",
     "image": "purple_top.jpg",
     "type": "top"
-  }  
+  },
+  {
+    "name": "Red Levi's Jumper",
+    "owner": "Megan",
+    "description": "Warm jumper perfect for post-club walks home!",
+    "size": "S",
+    "type": "jumper",
+    "image": "IMG_5901.JPG"
+  },
+  {
+    "name": "Purple Top",
+    "owner": "Megan",
+    "description": "Zara top",
+    "size": "S",
+    "type": "top",
+    "image": "IMG_5902.JPG"
+  },
+  {
+    "name": "White Button Top",
+    "owner": "Megan",
+    "description": "Square neck urban outfitters top",
+    "size": "XS",
+    "type": "top",
+    "image": "IMG_5903.JPG"
+  },
+  {
+    "name": "Grey Shrug",
+    "owner": "Megan",
+    "description": "knitted shrug from Lewkin",
+    "size": "S",
+    "type": "jumper",
+    "image": "IMG_5904.JPG"
+  },
+  {
+    "name": "Boho Skirt",
+    "owner": "Megan",
+    "description": "bohemian midi pink skirt",
+    "size": "S",
+    "type": "bottoms",
+    "image": "IMG_5905.JPG"
+  },
+  {
+    "name": "White Baby Tee",
+    "owner": "Megan",
+    "description": "brandy melville white baby tee",
+    "size": "XS",
+    "type": "top",
+    "image": "IMG_5906.JPG"
+  },
+  {
+    "name": "White Mesh Top",
+    "owner": "Megan",
+    "description": "see through floral lace top",
+    "size": "S",
+    "type": "top",
+    "image": "IMG_5907.JPG"
+  },
+  {
+    "name": "Off-shoulder Top",
+    "owner": "Megan",
+    "description": "stripy ribbed off shoulder-top",
+    "size": "S",
+    "type": "top",
+    "image": "IMG_5908.JPG"
+  },
+  {
+    "name": "Off-shoulder Purple Top",
+    "owner": "Megan",
+    "description": "purple motel rocks top (beware everyone wears motel rocks)",
+    "size": "S",
+    "type": "top",
+    "image": "IMG_5910.JPG"
+  },
+  {
+    "name": "Pink Baby Tee",
+    "owner": "Megan",
+    "description": "pink motel rocks baby tee",
+    "size": "S",
+    "type": "top",
+    "image": "IMG_5911.JPG"
+  }
 ]

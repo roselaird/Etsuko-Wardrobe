@@ -1,8 +1,6 @@
 async function loadOwner(person) {
-    console.log('load onwer called');
     try {
         const response = await fetch('ownerData');
-        console.log('try');
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
@@ -11,7 +9,6 @@ async function loadOwner(person) {
         const ownerDiv = document.getElementById('ownerdiv');
 
         ownerData.forEach(owner => {
-            console.log(ownerData);
             if (owner.name === person) {
                 ownerDiv.innerHTML = `
                 <div class="card-body">
@@ -23,12 +20,10 @@ async function loadOwner(person) {
             }
         })
     }
-
     catch (error) {
         console.error('Error loading owner:', error.message);
     }
 }
-
 
 async function loadClothes(category) {
     try {
@@ -38,7 +33,6 @@ async function loadClothes(category) {
             throw new Error(`Error: ${response.status}`);
         }
     
-        console.log('function called')
         const clothesData = await response.json();                      //getting json data from server
         const clothesDiv = document.getElementById('clothesdiv');       //getting clothes div which is a grid row
         const clothingGrid = document.createElement('div');             //creating a new div to store the cards/replace previous set of cards                            
@@ -47,7 +41,6 @@ async function loadClothes(category) {
             const type = clothing.type;
 
             if (type === category || category === 'all'){
-                console.log('passed tag check')
                 const name = clothing.name;
                 const owner = clothing.owner;
 
@@ -81,8 +74,10 @@ async function loadClothes(category) {
     }
 }
 
-async function addClothes() {
-    console.log('add clothes called');
+async function addClothesText(event) {
+    event.preventDefault();
+
+    console.log('add clothes text called');
     const name = document.getElementById('name').value;
     const type = document.getElementById('category').value;
     const description = document.getElementById('description').value;
@@ -94,7 +89,6 @@ async function addClothes() {
         owner,
         description,
         size,
-        image: "empty.jpg",
         type
     };
 
@@ -111,18 +105,17 @@ async function addClothes() {
             throw new Error(`Error: ${response.status}`);
         }
 
-        // const result = await response.json();
-        // console.log(result);
     } catch (error) {
         console.error('Error adding clothes:', error.message);
     }
+};
 
-
+async function uploadSelectedImage(event) {
+    event.preventDefault();
     const imageFile = document.getElementById('image').files[0];
     const formData = new FormData();
-    formData.append('image', imageFile); // Assuming 'file' is the File object representing the image
-// Append other form data if needed
-
+    formData.append('image', imageFile);
+    console.log('formData', formData);
 
     try {
         console.log("trying to upload image", formData)
@@ -134,11 +127,9 @@ async function addClothes() {
         if (!response.ok) {
             throw new Error(`Error: ${response.status}`);
         }
-
-        //const result = await response.json();
-        //console.log(result);
     } catch (error) {
         console.error('Error adding image:', error.message);
     }
 }
-//windowonload = loadClothes('all');
+
+windowonload = loadClothes('all');

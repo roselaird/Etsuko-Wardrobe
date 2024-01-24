@@ -1,25 +1,7 @@
-.custom-file-input {
-    display: inline-block;
-    padding: 8px 12px;
-    cursor: pointer;
-    background-color: #3498db;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 14px;
-  }
 
-  .custom-file-input:hover {
-    background-color: #2980b9;
-  }
-
-  /* Hide the default file input button */
-  input[type="file"] {
-    display: none;
-  }
-
-
-
+label{
+    color: #B27092
+}
 
 .main{
     margin-left:20px;
@@ -34,7 +16,7 @@
     padding: 10px 0px 10px;
 }
 
-#category{
+#category-title{
     padding: 25px 0px 25px;
     color: #512D38
 }
@@ -57,23 +39,6 @@
     height: 70%; /* Set a fixed height for the image */
 }
 
-.btn-outline-yellow {
-    color: #FFD700;
-    background-color: transparent;
-    border-color: #FFD700;
-}
-
-.btn-outline-green {
-    color: #008000;
-    background-color: transparent;
-    border-color: #008000;
-}
-
-.btn-outline-blue {
-    color: #0000FF;
-    background-color: transparent;
-    border-color: #0000FF;
-}
 
 .btn-outline-purple {
     color: #800080;
@@ -81,11 +46,6 @@
     border-color: #800080;
 }
 
-.btn-outline-pink {
-    color: #FFC0CB;
-    background-color: transparent;
-    border-color: #FFC0CB;
-}
 
 .btn-pink {
     color: #ffffff; /* Text color */
