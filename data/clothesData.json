@@ -38,41 +38,5 @@
     "size": "S",
     "image": "purple_top.jpg",
     "type": "top"
-  },
-  {
-    "name": "purple top",
-    "owner": "Sorine",
-    "description": "purple top",
-    "size": "S",
-    "image": "empty.jpg",
-    "type": "top"
-  },
-  {
-    "name": "Rose Laird",
-    "owner": "Sorine",
-    "description": "file test",
-    "size": "XS",
-    "image": "empty.jpg"
-  },
-  {
-    "name": "",
-    "owner": "Sorine",
-    "description": "",
-    "size": "XS",
-    "image": "empty.jpg"
-  },
-  {
-    "name": "",
-    "owner": "Sorine",
-    "description": "",
-    "size": "XS",
-    "image": "empty.jpg"
-  },
-  {
-    "name": "",
-    "owner": "Sorine",
-    "description": "",
-    "size": "XS",
-    "image": "empty.jpg"
-  }
+  }  
 ]

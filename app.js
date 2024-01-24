@@ -5,10 +5,14 @@ const cors = require('cors');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
+    
     destination: 'client/',
     filename: function (req, file, cb) {
+        console.log('storage');
         cb(null, file.originalname);
-    }
+        
+    },
+   
 });
 const upload = multer({ storage: storage });
 
@@ -22,6 +26,7 @@ const ownerFile = JSON.parse(fs.readFileSync('data/ownersData.json', 'utf-8'));
 app.get('/clothesData', function (request, response) {
     console.log('she returs', clothesFile)
     response.json(clothesFile);
+    // 
 });
 
 app.get('/ownerData', function (request, response) {
@@ -44,13 +49,13 @@ app.post('/uploadImage', upload.single('image'), (req, res) => {
     // Add the imagePath property to the last item in the array
     console.log('imagePath', imagePath)
     
-    const lastItem = clothesFile[clothesData.length - 1];
+    const lastItem = clothesFile[clothesFile.length - 1];
     if (lastItem) {
         lastItem.image = imagePath;
     }
 
     // Write the modified object back to the JSON file
-    fs.writeFileSync(jsonFilePath, JSON.stringify(clothesData, null, 2));
+    fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
 
     // Send a response with the imagePath
     res.json({ imagePath });

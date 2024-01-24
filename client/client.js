@@ -88,24 +88,47 @@ async function addClothes() {
     const description = document.getElementById('description').value;
     const size = document.getElementById('size').value;
     const owner = document.getElementById('owner').value;
-    const image = "empty.jpg";
 
     const newClothes = {
         name,
         owner,
         description,
         size,
-        image,
+        image: "empty.jpg",
         type
     };
 
     try {
         const response = await fetch('addClothesData', {
             method: 'POST',
+            body: JSON.stringify(newClothes),
             headers: {
                 'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newClothes)
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        // const result = await response.json();
+        // console.log(result);
+    } catch (error) {
+        console.error('Error adding clothes:', error.message);
+    }
+
+
+    const imageFile = document.getElementById('image').files[0];
+    const formData = new FormData();
+    formData.append('image', imageFile); // Assuming 'file' is the File object representing the image
+// Append other form data if needed
+
+
+    try {
+        console.log("trying to upload image", formData)
+        const response = await fetch('uploadImage', {
+            method: 'POST',
+            body: formData
         });
 
         if (!response.ok) {
@@ -114,90 +137,8 @@ async function addClothes() {
 
         //const result = await response.json();
         //console.log(result);
-    }
-
-    catch (error) {
-        console.error('Error adding clothes:', error.message);
-    }
-
-    const imageFile = document.getElementById('image').files[0];
-    console.log('boutta image', imageFile)
-
-    try {
-        const response = await fetch('uploadImage', {
-            method: 'POST',
-            body: imageFile
-        });
-
-        if (!response.ok) {
-            throw new Error(`Error: ${response.status}`);
-        }
-
-        const result = await response.json();
-        console.log(result);
-    }
-
-    catch (error) {
+    } catch (error) {
         console.error('Error adding image:', error.message);
     }
-
 }
-
-function addClothes2() {
-    // Get the form elements
-    const name = document.getElementById('name').value;
-    const image = document.getElementById('image').files[0];
-    const owner = document.getElementById('owner').value;
-    const description = document.getElementById('description').value;
-    const category = document.getElementById('category').value;
-    const size = document.getElementById('size').value;
-
-    // Create a FormData object to store the form data
-    const formData = new FormData();
-
-    // Append the non-file form data to the FormData object
-    formData.append('name', name);
-    formData.append('owner', owner);
-    formData.append('description', description);
-    formData.append('category', category);
-    formData.append('size', size);
-
-    // Append the file to the FormData object
-    formData.append('image', image);
-
-    // First POST request for the file
-    fetch('/uploadImage', {
-        method: 'POST',
-        body: formData,
-    })
-    .then(response => response.json())
-    .then(fileResponse => {
-        // Now you can make a second POST request for the rest of the data
-        // Assuming there is an endpoint like '/addClothesData' for adding clothes data
-        return fetch('/addClothesData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                name,
-                owner,
-                description,
-                category,
-                size,
-                imageUrl: fileResponse.imageUrl, // Use the URL or any identifier returned from the file upload endpoint
-            }),
-        });
-    })
-    .then(response => response.json())
-    .then(dataResponse => {
-        // Handle the response for the second POST request
-        console.log('Clothes data added successfully:', dataResponse);
-    })
-    .catch(error => {
-        console.error('Error adding clothes:', error);
-    });
-}
-
-
 //windowonload = loadClothes('all');

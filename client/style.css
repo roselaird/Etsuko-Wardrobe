@@ -1,3 +1,26 @@
+.custom-file-input {
+    display: inline-block;
+    padding: 8px 12px;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+
+  .custom-file-input:hover {
+    background-color: #2980b9;
+  }
+
+  /* Hide the default file input button */
+  input[type="file"] {
+    display: none;
+  }
+
+
+
+
 .main{
     margin-left:20px;
 }
@@ -5,6 +28,10 @@
 .card-container {
     display: flex;
     gap: 10px;
+}
+
+.form-group{
+    padding: 10px 0px 10px;
 }
 
 #category{
