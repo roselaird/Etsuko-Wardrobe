@@ -1,6 +1,16 @@
+function closeModal() {
+    var modal = new bootstrap.Modal(document.getElementById('reservationModal'));
+    console.log('hidin');
+    
+    // Adding a slight delay before hiding the modal
+    setTimeout(function () {
+      modal.hide();
+    }, 100);
+  }
+  
+
 async function checkReservations(clothesName) {
     var modal = new bootstrap.Modal(document.getElementById('reservationModal'));
-    modal.show()
     document.getElementById('clothesName').innerHTML = clothesName;
     modal.show();
     console.log(clothesName);

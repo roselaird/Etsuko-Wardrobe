@@ -30,7 +30,7 @@ app.get('/ownerData', function (request, response) {
 
 app.get('/reservationsFile/:id', function (request, response) {
     const clothesName = request.params.id;
-    const unavailableDates = reservationsFile.filter(reservation => reservation.clothesName === clothesName);
+    const unavailableDates = reservationsFile.filter(reservation => reservation.name === clothesName);
     //const reservations = owner.reservations;
     response.json(unavailableDates);
 });

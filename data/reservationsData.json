@@ -1,20 +1,22 @@
 [
   {
-    "clothesName": "navy mesh top",
+    "name": "navy mesh top",
     "date": "26/01/2024"
   },
-  {},
-  {},
-  {},
-  {},
-  {},
-  {},
   {
     "date": "2024-02-02",
     "name": "blue floral top"
   },
   {
-    "date": "2024-02-02",
+    "date": "2024-02-07",
+    "name": "grey top"
+  },
+  {
+    "date": "2024-03-09",
+    "name": "navy mesh top"
+  },
+  {
+    "date": "",
     "name": "blue floral top"
   }
 ]
