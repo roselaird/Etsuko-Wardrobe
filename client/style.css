@@ -1,12 +1,11 @@
-
 label{
     color: #B27092
 }
 
 #icon-overlay {
     position: absolute;
-    top: 10px; /* Adjust this value to position it from the top */
-    right: 30px; /* Adjust this value to position it from the right */
+    top: 10px;
+    right: 30px;
     cursor: pointer;
     color: white;
     font-size: 40px;
@@ -31,7 +30,7 @@ label{
 }
 
 .card {
-    height: 100%; /* Set a fixed height for the cards */
+    height: 100%;
     display: flex;
     flex-direction: column;
 }
@@ -40,14 +39,13 @@ label{
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Distribute space between items */
+    justify-content: space-between;
 }
 
 .card-img-top {
     object-fit: cover;
-    height: 70%; /* Set a fixed height for the image */
+    height: 70%;
 }
-
 
 .btn-outline-purple {
     color: #800080;
@@ -55,11 +53,10 @@ label{
     border-color: #800080;
 }
 
-
 .btn-pink {
-    color: #ffffff; /* Text color */
-    background-color: #512D38; /* Pink color */
-    border-color: #512D38; /* Border color */
+    color: #ffffff;
+    background-color: #512D38;
+    border-color: #512D38;
 }
 
 .card-title {

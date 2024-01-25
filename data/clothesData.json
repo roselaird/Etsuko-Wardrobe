@@ -118,5 +118,37 @@
     "size": "S",
     "type": "top",
     "image": "IMG_5911.JPG"
+  },
+  {
+    "name": "Thneed Scarf",
+    "owner": "Rose",
+    "description": "Fluffy red thneed scarf super warm",
+    "size": "M",
+    "type": "accessory",
+    "image": "IMG_5912.jpeg"
+  },
+  {
+    "name": "Cargos",
+    "owner": "Rose",
+    "description": "green cargos, a bit baggy",
+    "size": "M",
+    "type": "bottoms",
+    "image": "IMG_5913.jpeg"
+  },
+  {
+    "name": "White Jeans",
+    "owner": "Rose",
+    "description": "Low waisted white jeans from H and M",
+    "size": "M",
+    "type": "bottoms",
+    "image": "IMG_5915.jpeg"
+  },
+  {
+    "name": "Biker Jacket",
+    "owner": "Rose",
+    "description": "Frank Thomas biker jacket",
+    "size": "M",
+    "type": "jumper",
+    "image": "IMG_5916.jpeg"
   }
 ]

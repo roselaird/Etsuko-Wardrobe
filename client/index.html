@@ -20,31 +20,32 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-6">
-                    <h3>The Wardrobe</h2>
+                    <h2>The Wardrobe</h2>
                     <p>Spice up your wardrobe whilst saving money and the planet!</p>
                 </div>
                 <div class="col-sm-6">
-                    <h3>Borrowing</h2>
+                    <h2>Borrowing</h2>
                     <p>Simply make a reservation and find the owner's details to confirm!</p>
                 </div>
             </div>
-  <!-- The Modal -->
+        </div>
+  
   <div class="modal" id="reservationModal">
     <div class="modal-dialog">
       <div class="modal-content">
   
-        <!-- Modal Header -->
+       
         <div class="modal-header">
           <h4 class="modal-title">Reservation Form</h4>
           <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
         </div>
   
-        <!-- Modal Body -->
+     
         <div class="modal-body">
-            <h5 id="clothesName"></h5>
+            <h5 id="clothesName">navy mesh top</h5>
           <div id="reservationsDiv"></div>
   
-          <!-- Date Input Form -->
+       
           <form id="reservationForm">
             <div class="form-group">
               <label for="reservationDate">Choose Date:</label>
@@ -54,7 +55,7 @@
           </form>
         </div>
   
-        <!-- Modal Footer -->
+        
         <div class="modal-footer">
           <button type="button" class="btn btn-pink" data-bs-dismiss="modal" >Close</button>
         </div>
@@ -128,18 +129,17 @@
                 </select>
             </div>
             <button type="submit" class="btn btn-pink" onclick="addClothesText(event)">Submit</button>
-            
-            <form enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="image">Image:</label>
-                    <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
-                </div>
-                <button type="submit" class="btn btn-pink" onclick="uploadSelectedImage(event)">Upload your selected image</button>
-            </form>
-            
-            
-            <br></br>
         </form>
+
+        <form enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="image">Image:</label>
+                <input type="file" class="form-control-file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-pink" onclick="uploadSelectedImage(event)">Upload your selected image</button>
+        </form> 
+        <br></br>
+        
     </div>
     <a href="https://www.flaticon.com/free-icons/closet" title="closet icons">Closet icons created by Swifticons - Flaticon</a>
    

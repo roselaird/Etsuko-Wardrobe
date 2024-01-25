@@ -5,7 +5,7 @@ const cors = require('cors');
 const multer = require('multer');
 
 const storage = multer.diskStorage({
-    destination: 'client/',
+    destination: 'client/images/',
     filename: function (req, file, cb) {
         cb(null, file.originalname); 
     },  
@@ -21,30 +21,44 @@ const ownerFile = JSON.parse(fs.readFileSync('data/ownersData.json', 'utf-8'));
 const reservationsFile = JSON.parse(fs.readFileSync('data/reservationsData.json', 'utf-8'));
 
 app.get('/clothesData', function (request, response) {
-    response.json(clothesFile);
+    try{
+        response.json(clothesFile)
+    }
+    catch (error) {
+        response.status(400).send('Client Error, try a different request');
+    }
 });
 
 app.get('/ownerData', function (request, response) {
-    response.json(ownerFile);
+    try{
+        response.json(ownerFile)
+        }
+    catch (error) {
+        console.error('Error handling owner data:', error.message);
+        response.status(400).send('Client Error, try a different request');
+    }
 });
 
 app.get('/reservationsFile/:id', function (request, response) {
-    const clothesName = request.params.id;
-    const unavailableDates = reservationsFile.filter(reservation => reservation.name === clothesName);
-    //const reservations = owner.reservations;
-    response.json(unavailableDates);
+    try{
+        const clothesName = request.params.id;
+        const unavailableDates = reservationsFile.filter(reservation => reservation.name === clothesName);
+        response.json(unavailableDates);
+    }        
+    catch (error) {
+        console.error('Error handling reservations data:', error.message);
+        response.status(400).send('Client Error, try a different request');
+    }
 });
 
 app.post('/addReservation', function (request, response) {
     try {
-        console.log('add reservation function')
         const newReservation = request.body;
         reservationsFile.push(newReservation);
         fs.writeFileSync('data/reservationsData.json', JSON.stringify(reservationsFile, null, 2));
-        response.send('Reservation data received, refresh to see it in the list');
+        response.status(200).send('Reservation data received');
     } catch (error) {
-        console.error('Error handling addReservation:', error.message);
-        response.status(500).send('Internal Server Error');
+        response.status(400).send('Client Error, try a different request');
     }
 });
 
@@ -53,29 +67,26 @@ app.post('/addClothesData', function (request, response) {
         const newClothes = request.body;
         clothesFile.push(newClothes);
         fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
-        response.send('Clothes data received, refresh to see it in the list');
+        response.status(200).send('Clothes data received, refresh to see it in the list');
     } 
-    
     catch (error) {
-        console.error('Error handling addClothesData:', error.message);
-        response.status(500).send('Internal Server Error');
+        response.status(400).send('Client Error, try a different request');
     }
-    });
+});
 
-app.post('/uploadImage', upload.single('image'), (req, res) => {
-    console.log("we're postin the pic!")
-    const imagePath = `${req.file.filename}`;
-    console.log('imagePath', imagePath)
-    
-    const lastItem = clothesFile[clothesFile.length - 1];
-    console.log('lastItem', lastItem)
-    if (lastItem) {
-        lastItem.image = imagePath;
-        console.log('lastItem', lastItem,imagePath )
+app.post('/uploadImage', upload.single('image'), (request, response) => {
+    try{
+        const imagePath = `${request.file.filename}`;
+        const lastItem = clothesFile[clothesFile.length - 1];
+        if (lastItem) {
+            lastItem.image = imagePath;
+        }
+        fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
+        response.status(200).send('Image uploaded successfully');
     }
-    fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
-    
-    res.json({ imagePath });
+    catch (error) {
+        response.status(400).send('Client Error, try a different request');
+    }
 });
 
 module.exports = app;

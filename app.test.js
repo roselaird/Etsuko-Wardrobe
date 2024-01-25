@@ -2,49 +2,77 @@
 
 const request = require('supertest');
 const app = require('./app');
+const fs = require('fs');
+const path = require('path');
+const multer = require('multer');
 
-describe('Test the things service', () => {
-    test('GET /tags succeeds', () => {
+const storage = multer.diskStorage({
+    destination: 'client/',
+    filename: function (req, file, cb) {
+        cb(null, file.originalname); 
+    },  
+});
+const upload = multer({ storage: storage });
+
+
+describe('Test my requests', () => {
+    test('GET /clothesData returns JSON', () => {
         return request(app)
-	    .get('/tags')
-	    .expect(200);
+        .get('/clothesData')
+        .expect('Content-type', /json/)
+        .expect(200)
     });
 
-    test('GET /thing/list returns JSON', () => {
+    test('GET /ownerData returns JSON', () => {
         return request(app)
-	    .get('/thing/list')
-	    .expect('Content-type', /json/);
+        .get('/ownerData')
+        .expect('Content-type', /json/)
+        .expect(200)
     });
 
-    test('GET /tags to include geography', () => {
+    test('GET /reservationsFile/:id returns JSON', () => {
+        const id = "navy mesh top"
         return request(app)
-	    .get('/tags')
-	    .expect(/geography/);
+        .get(`/reservationsFile/${id}`)
+        .expect('Content-Type', /json/)
+        .expect(200)
     });
 
-    test('GET /thing/1 succeeds', () => {
+    test('POST /addReservation succeeds', () => {
         return request(app)
-	    .get('/thing/1')
-	    .expect(200);
+        .post('/addReservation')
+    .expect(200);
     });
 
-    test('GET /thing/1 returns JSON', () => {
+    test('POST /addClothesData succeeds', () => {
         return request(app)
-	    .get('/thing/1')
-	    .expect('Content-type', /json/);
+        .post('/addClothesData')
+        .expect(200);
     });
 
-    test('GET /thing/1 includes 40', () => {
+    test('POST /addReservation succeeds', () => {
         return request(app)
-	    .get('/thing/1')
-	    .expect(/40/);
+        .post('/addReservation')
+        .expect(200);
     });
+});
 
-    test('POST /thing/add succeeds', () => {
-        const params = { newthing: 'TechUp' };
-        return request(app)
-        .post('/thing/add')
-        .send(params)
-	    .expect(200);
-    });
+describe('POST /uploadImage', () => {
+    it('uploads an image and updates the last item in clothesFile', async () => {
+        const formData = new FormData(); 
+        
+        const filePath = path.join(__dirname, '../prog-assessment/client/images/blue_top.JPG'); // Adjust the path as needed
+
+        formData.append('image', fs.createReadStream(filePath));
+
+        const response = await request(app)
+        .post('/uploadImage', formData)
+        .attach('image', filePath)
+        .expect('Content-Type', /json/)
+        .expect(200);
+        expect(response.body).toHaveProperty('imagePath');
+        const clothesFile = JSON.parse(fs.readFileSync('data/clothesData.json'));
+        const lastItem = clothesFile[clothesFile.length - 1];
+        expect(lastItem).toHaveProperty('image', response.body.imagePath);
+    }, 10000);
 });
