@@ -3,6 +3,15 @@ label{
     color: #B27092
 }
 
+#icon-overlay {
+    position: absolute;
+    top: 10px; /* Adjust this value to position it from the top */
+    right: 30px; /* Adjust this value to position it from the right */
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+}
+
 .main{
     margin-left:20px;
 }

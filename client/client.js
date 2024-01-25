@@ -1,3 +1,71 @@
+async function checkReservations(clothesName) {
+    var modal = new bootstrap.Modal(document.getElementById('reservationModal'));
+    modal.show()
+    document.getElementById('clothesName').innerHTML = clothesName;
+    modal.show();
+    console.log(clothesName);
+
+    try {
+        const response = await fetch(`reservationsFile/${clothesName}`);
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+
+        const reservations = await response.json();
+        const reservationsDiv = document.getElementById('reservationsDiv');
+
+        reservationsDiv.innerHTML = `
+            <p>This clothing item is unavailable on the following dates:</p>
+        `;
+
+        if (reservations.length === 0) {
+            reservationsDiv.innerHTML = `
+                <p>This clothing item is available on all dates!</p>
+            `;
+    }
+        else{
+            reservations.forEach(reservation => {
+                reservationsDiv.innerHTML += `
+                    <div class="card-body">
+                        <p class="card-text">${reservation.date}</p>
+                    </div>
+                `;
+            });
+        }
+    }
+    catch (error) {
+        console.error('Error loading reservations:', error.message);
+    }
+}
+
+async function submitReservation(event) {
+    event.preventDefault();
+    const reservationDate = document.getElementById('reservationDate').value;
+    const clothesName = document.getElementById('clothesName').innerHTML;
+    const reservationData = {
+        date: reservationDate,
+        name: clothesName,
+      };
+      
+      const reservationJSON = JSON.stringify(reservationData);
+
+    try{
+        const response = await fetch('addReservation', {
+            method: 'POST',
+            body: reservationJSON,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Error adding reservation:', error.message);
+    }
+}
+
 async function loadOwner(person) {
     try {
         const response = await fetch('ownerData');
@@ -54,6 +122,9 @@ async function loadClothes(category) {
                 clothesCard.innerHTML = `
                     <div class="card">
                     <img src="${filepath}" class="card-img-top img-fluid" alt="${description}">
+                    <div id="icon-overlay" onclick="checkReservations('${name}')">
+                        <span>+</span>
+                    </div>
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">${name}</h5>
                         <p class="card-text">${description}</p>
@@ -68,7 +139,6 @@ async function loadClothes(category) {
 
         clothesDiv.innerHTML = clothingGrid.innerHTML
     }
-
     catch (error) {
     console.error('Error loading clothes:', error.message);    
     }
@@ -77,7 +147,6 @@ async function loadClothes(category) {
 async function addClothesText(event) {
     event.preventDefault();
 
-    console.log('add clothes text called');
     const name = document.getElementById('name').value;
     const type = document.getElementById('category').value;
     const description = document.getElementById('description').value;

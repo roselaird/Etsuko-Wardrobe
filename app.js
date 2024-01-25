@@ -18,6 +18,7 @@ app.use(express.json());
 
 const clothesFile = JSON.parse(fs.readFileSync('data/clothesData.json', 'utf-8'));
 const ownerFile = JSON.parse(fs.readFileSync('data/ownersData.json', 'utf-8'));
+const reservationsFile = JSON.parse(fs.readFileSync('data/reservationsData.json', 'utf-8'));
 
 app.get('/clothesData', function (request, response) {
     response.json(clothesFile);
@@ -27,12 +28,32 @@ app.get('/ownerData', function (request, response) {
     response.json(ownerFile);
 });
 
+app.get('/reservationsFile/:id', function (request, response) {
+    const clothesName = request.params.id;
+    const unavailableDates = reservationsFile.filter(reservation => reservation.clothesName === clothesName);
+    //const reservations = owner.reservations;
+    response.json(unavailableDates);
+});
+
+app.post('/addReservation', function (request, response) {
+    try {
+        console.log('add reservation function')
+        const newReservation = request.body;
+        reservationsFile.push(newReservation);
+        fs.writeFileSync('data/reservationsData.json', JSON.stringify(reservationsFile, null, 2));
+        response.send('Reservation data received, refresh to see it in the list');
+    } catch (error) {
+        console.error('Error handling addReservation:', error.message);
+        response.status(500).send('Internal Server Error');
+    }
+});
+
 app.post('/addClothesData', function (request, response) {
-    try{console.log('add clothes function')
-    const newClothes = request.body;
-    clothesFile.push(newClothes);
-    fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
-    response.send('Clothes data received, refresh to see it in the list');
+    try{
+        const newClothes = request.body;
+        clothesFile.push(newClothes);
+        fs.writeFileSync('data/clothesData.json', JSON.stringify(clothesFile, null, 2));
+        response.send('Clothes data received, refresh to see it in the list');
     } 
     
     catch (error) {
